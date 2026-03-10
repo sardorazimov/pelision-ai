@@ -35,6 +35,23 @@ const demos = [
       ],
     },
   },
+  {
+    href: "/github_login",
+    title: "GitHub Login",
+    description: "Social login via GitHub OAuth—Supabase handles the flow, onAuthStateChange keeps the UI in sync.",
+    highlights: ["Redirect URLs", "Call signInWithOAuth", "Watch session update"],
+    theme: {
+      card:
+        "border border-[#8b5cf6]/30 bg-gradient-to-br from-[#0a0515] via-[#110827] to-[#1a0e3a] shadow-[0_30px_70px_rgba(2,6,23,0.65)] hover:border-[#a78bfa]/60",
+      open: "text-[#c4b5fd]",
+      title: "text-[#ddd6fe]",
+      bullets: "text-[#c4b5fd]",
+      overlays: [
+        "pointer-events-none absolute -right-8 -top-6 -z-10 h-16 w-16 rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.3),_rgba(168,85,247,0.06))] blur-lg",
+        "pointer-events-none absolute bottom-4 left-6 -z-10 h-12 w-32 rounded-full bg-[linear-gradient(120deg,_rgba(168,85,247,0.18),_rgba(139,92,246,0.12))] blur-lg",
+      ],
+    },
+  },
 ] as const;
 
 export default function Home() {
@@ -46,10 +63,10 @@ export default function Home() {
             Supabase × Next.js
           </p>
           <h1 className="text-4xl font-semibold text-white drop-shadow-sm">
-            Two auth flows.
+            Three auth flows.
           </h1>
           <p className="text-base text-slate-400">
-            Production-ready Supabase auth blueprints with real session listeners.
+            Production-ready Supabase auth blueprints with real session listeners — Email, Google & GitHub.
           </p>
         </header>
         <section className="grid gap-6 md:grid-cols-3">
