@@ -1,5 +1,6 @@
 // src/db/schema.ts
-import { pgTable, serial, text, timestamp, boolean } from "drizzle-orm/pg-core";
+
+import { pgTable, serial, text, timestamp, boolean,primaryKey } from "drizzle-orm/pg-core";
 
 // ## Kullanıcılar Tablosu (Starter / Pro ayrımını burada tutacağız)
 export const users = pgTable("users", {
@@ -17,4 +18,12 @@ export const projects = pgTable("projects", {
   name: text("name").notNull(),
   framework: text("framework").notNull(), // Örn: "nextjs", "rust", "react-native"
   createdAt: timestamp("created_at").defaultNow(),
+});
+
+// db/schema.ts içindeki ilgili kısmı bununla değiştir:
+export const verification = pgTable("verification", {
+    id: text("id").primaryKey(), // Better Auth id bekler
+    identifier: text("identifier").notNull(),
+    value: text("value").notNull(), // İşte o eksik olan "value" alanı bu!
+    expiresAt: timestamp("expiresAt").notNull(),
 });
