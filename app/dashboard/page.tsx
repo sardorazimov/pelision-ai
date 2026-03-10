@@ -1,22 +1,16 @@
-// app/dashboard/page.tsx (veya hangi sayfaysa)
+import React from 'react'
+import { Button } from '../../components/ui/button'
+import {  SignOutButton, UserButton } from "@clerk/nextjs";
 
-import { createSupabaseServerClient } from "../../utils/supabase/server-client";
-
-
-export default async function Page() {
-  const supabase = await createSupabaseServerClient();
-  const { data: { user }, error } = await supabase.auth.getUser();
-
-  console.log("Server >", { user });
-
-  if (!user) {
-    // Kullanıcı yoksa login'e postala
-    // redirect("/login"); 
-  }
-
+const Dashboard = () => {
   return (
-    <div className="text-white">
-      {user ? `Hoş geldin ${user.email}` : "Giriş yapılmadı"}
+    <div>Dashboard
+      <Button>
+        <UserButton />
+        
+      </Button>
     </div>
-  );
+  )
 }
+
+export default Dashboard
